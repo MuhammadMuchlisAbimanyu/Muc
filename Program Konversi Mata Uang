@@ -1,0 +1,58 @@
+#Muhammad Muchlis Abimanyu
+#2109106069
+
+loop='Y'
+while loop=='y' or loop=='Y':  
+    print("PROGRAM KONVERSI MATA UANG")
+    print("==========================")
+    print(">>Menu Pilihan<<")
+    print("1. Konversi IDR ke USD")
+    print("2. Konversi IDR ke SGD")
+    print("3. Konversi IDR ke EUR")
+    print("4. Konversi IDR ke JPY")
+    print("5. Keluar")
+    print("==========================")
+    answer = int(input("Masukkan pilihan konversi = "))
+
+    if answer==1:
+        aString = int(input("Masukkan jumlah IDR = Rp."))
+        a = int(aString)
+        bString = a / 14100
+        b = float(bString)
+        print("Nilai IDR Rp",a, "= $", b)
+        loop = (input('\nKembali ke menu pilihan? [Y/N]?'))
+        
+    elif answer==2:
+        aString = int(input("Masukkan jumlah1 IDR = Rp."))
+        a = int(aString)
+        bString = a / 10500
+        b = float(bString)
+        print("Nilai IDR Rp",a,"= S$", b)
+        aa = (input('\nKembali ke menu pilihan? [Y/N]'))
+        
+    
+    elif answer==3:
+        aString = int(input("Masukkan jumlah IDR = Rp."))
+        a = int(aString)
+        bString = a / 16400
+        b = float(bString)
+        print("Nilai IDR Rp",a,"= €", b)
+        loop = (input('\nKembali ke menu pilihan? [Y/N]'))
+        
+
+    elif answer==4:
+        aString = int(input("Masukkan jumlah IDR = Rp."))
+        a = int(aString)
+        bString = a / 123
+        b = float(bString)
+        print("Nilai IDR Rp",a,"= ¥", b)
+        loop = (input('\nKembali ke menu pilihan? [Y/N]'))
+        
+    elif answer==5:
+        print("Terima kasih")
+        break
+
+    else:
+        print('Tidak ada pilihan')
+        loop = input('\nKembali ke menu pilihan Y/N)?')
+        print('Terima kasih')
