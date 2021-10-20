@@ -1,0 +1,40 @@
+#Muhammad Muchlis Abimanyu
+#2109106069
+
+loop='Y'
+while loop=='y' or loop=='Y': 
+
+    data = ({'nama':'Muhammad Muchlis Abimanyu','nim':2109106069,
+    'jenis kelamin':'laki-laki','tinggi':183.2,'hobi':'Renang, Main game'})
+
+    print("========Menu=======")
+    print("1. Nama")
+    print("2. NIM")
+    print("3. Jenis Kelamin")
+    print("4. Tinggi")
+    print("5. Hobi")
+    print("6. Keluar")
+    print("===================")
+    answer = int(input("Pilihan Ke : "))
+
+    if answer == 1:
+        print(data['nama'])
+        loop = (input('\nKembali ke menu pilihan? [Y/N]?'))
+    elif answer == 2:
+        print(data['nim'])
+        loop = (input('\nKembali ke menu pilihan? [Y/N]?'))
+    elif answer == 3:
+        print(data['jenis kelamin'])
+        loop = (input('\nKembali ke menu pilihan? [Y/N]?'))
+    elif answer == 4:
+        print(data['tinggi'])
+        loop = (input('\nKembali ke menu pilihan? [Y/N]?'))
+    elif answer == 5:
+        print(data['hobi'])
+        loop = (input('\nKembali ke menu pilihan? [Y/N]?'))
+    elif answer == 6:
+        print("Terima kasih")
+        break
+
+    else:
+        print("Maaf, pilihan yang anda masukkan salah.")
