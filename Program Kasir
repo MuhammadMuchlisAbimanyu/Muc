@@ -50,7 +50,6 @@ while loop=='yes' or loop=='YES' or loop=='Yes':
     menu_donat()
     answer = int(input('\nMasukkan pilihan  : '))
     jumlah = int(input('Jumlah pembelian  : '))
-
     if answer == 1:
         nama_pesanan = 'Donat Coklat'
         jumlah_pesanan = jumlah
@@ -74,8 +73,9 @@ while loop=='yes' or loop=='YES' or loop=='Yes':
     elif answer == 6:
         print('Terima kasih')
     else:
-        print('Invalid Input')
-
+        loop = input("Menu Tidak Tersedia, Ingin Order Lagi? [Yes/No] ")
+        continue
+        
     menu_hari()
     diskon = int(input('\nMasukkan pilihan : '))
     print('')
@@ -100,8 +100,12 @@ while loop=='yes' or loop=='YES' or loop=='Yes':
         total_pembelian = harga
         b = '-'
         print("--------------------------------")
-        print("Donat Jamet")
+        print("========Donat Bang Jamet========")
         print("--------------------------------")
+        break
+    else:
+        loop = input("Invalid Input, Ingin Order Lagi? [Yes/No] ")
+        continue
     
     print("Pesanan          :",nama_pesanan)
     print("Jumlah Pesanan   :", jumlah_pesanan)
