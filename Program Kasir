@@ -1,0 +1,113 @@
+#Muhammad Muchlis Abimanyu
+#2109106069
+#Potongan 10% dihari Senin
+#Potongan 25% dihari Jumat
+
+coklat = 7200
+keju = 8000
+kacang = 7000
+oreo = 7800
+gula = 6500
+
+donat = {1:'[1] Donat Coklat  : Rp.7200',
+         2:'[2] Donat Keju    : Rp.8000',
+         3:'[3] Donat Kacang  : Rp.7000',
+         4:'[4] Donat Oreo    : Rp.7800',
+         5:'[5] Donat Gula    : Rp.6500'}
+         
+hari = {1:'[1] Senin' ,
+        2:'[2] Selasa',
+        3:'[3] Rabu ' ,
+        4:'[4] Kamis' ,
+        5:'[5] Jumat' ,
+        6:'[6] Sabtu' ,
+        7:'[7] Minggu'}
+
+def menu_donat():
+    print('\n========Donat Bang Jamet========')
+    print('--------------Menu--------------')
+    print(donat[1])
+    print(donat[2])
+    print(donat[3])
+    print(donat[4])
+    print(donat[5])
+    print('[6] Keluar')
+    print('--------------------------------')
+
+def menu_hari():
+    print('\n---------Hari Pembelian---------')
+    print(hari[1])
+    print(hari[2])
+    print(hari[3])
+    print(hari[4])
+    print(hari[5])
+    print(hari[6])
+    print(hari[7])
+    print('--------------------------------')
+
+loop='Yes'
+while loop=='yes' or loop=='YES' or loop=='Yes':
+    menu_donat()
+    answer = int(input('\nMasukkan pilihan  : '))
+    jumlah = int(input('Jumlah pembelian  : '))
+
+    if answer == 1:
+        nama_pesanan = 'Donat Coklat'
+        jumlah_pesanan = jumlah
+        harga = coklat*jumlah
+    elif answer == 2:
+        nama_pesanan = 'Donat Keju'
+        jumlah_pesanan = jumlah
+        harga = keju*jumlah
+    elif answer == 3:
+        nama_pesanan = 'Donat Kacang'
+        jumlah_pesanan = jumlah
+        harga = kacang*jumlah
+    elif answer == 4:
+        nama_pesanan = 'Donat Oreo'
+        jumlah_pesanan = jumlah
+        harga = oreo*jumlah
+    elif answer == 5:
+        nama_pesanan = 'Donat Gula'
+        jumlah_pesanan = jumlah
+        harga = gula*jumlah
+    elif answer == 6:
+        print('Terima kasih')
+    else:
+        print('Invalid Input')
+
+    menu_hari()
+    diskon = int(input('\nMasukkan pilihan : '))
+    print('')
+
+    if diskon == 1:
+        a = int(harga)
+        b = int(a*0.1)
+        total_pembelian = a-b
+        print("-------------------------------")
+        print("========Donat Bang Jamet=======")
+        print('Diskon Hari Senin Potongan 10%')
+        print("-------------------------------")
+    elif diskon == 5:
+        a = int(harga)
+        b = int(a*0.25)
+        total_pembelian = a-b
+        print("--------------------------------")
+        print("========Donat Bang Jamet========")
+        print('Diskon Jumat Berkah Potongan 25%')
+        print("--------------------------------")
+    elif diskon == 2 or diskon == 3 or diskon == 4 or diskon == 6 or diskon == 7:
+        total_pembelian = harga
+        b = '-'
+        print("--------------------------------")
+        print("Donat Jamet")
+        print("--------------------------------")
+    
+    print("Pesanan          :",nama_pesanan)
+    print("Jumlah Pesanan   :", jumlah_pesanan)
+    print("Harga            :", harga)
+    print("Diskon           :", b)
+    print("--------------------------------")
+    print("Jumlah Bayar     :", total_pembelian)
+    print("--------------------------------")
+    loop=input("Ingin Order Lagi? [Yes/No] : ")
