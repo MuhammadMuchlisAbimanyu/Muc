@@ -1,0 +1,297 @@
+#Muhammad Muchlis Abimanyu
+#2109106069
+
+#Username : Muchlis
+#Password Admin : 069
+#Password User  : 210
+#Error Handling
+
+donat = ['Donat Coklat',
+         'Donat Keju  ',
+         'Donat Kacang',
+         'Donat Oreo  ',
+         'Donat Gula  ']
+
+harga = [7200,
+         8000,
+         7000,
+         7800,
+         6500]
+
+hari = {1:'[1] Senin' ,
+        2:'[2] Selasa',
+        3:'[3] Rabu ' ,
+        4:'[4] Kamis' ,
+        5:'[5] Jumat' ,
+        6:'[6] Sabtu' ,
+        7:'[7] Minggu'}
+
+def back_to_menu():
+    enter()
+    input("Tekan [Enter] untuk kembali...")
+    clear_screen()
+    show_menu()
+
+def back_to_menu_jual():
+    enter()
+    input("Tekan [Enter] untuk kembali...")
+    clear_screen()
+    show_menu_jual()
+
+def back_to_login_username():
+    enter()
+    input("Username anda salah, tekan [Enter] untuk kembali...")
+    clear_screen()
+    show_login()
+
+def back_to_login_password():
+    enter()
+    input("Password anda salah, tekan [Enter] untuk kembali...")
+    clear_screen()
+    show_login()
+
+
+def show_admin():
+    clear_screen()
+    if len(donat) <= 0:
+        print("BELUM ADA DATA")
+        back_to_menu()
+    else:
+        garis_menu()
+        for i in range(len(donat)):
+            print(i, donat[i],'Rp :',harga[i])
+        garis()
+        
+def show_data():
+    clear_screen()
+    if len(donat) <= 0:
+        print("BELUM ADA DATA")
+        back_to_menu()
+    else:
+        garis_menu()
+        for i in range(len(donat)):
+            print(i, donat[i],'Rp :',harga[i])
+        garis()
+        back_to_menu()
+
+def show_menu_jual():
+    clear_screen()
+    if len(donat) <= 0:
+        print("BELUM ADA DATA")
+        back_to_menu_jual()
+    else:
+            garis_menu()
+            for i in range(len(donat)):
+                print(i, donat[i],'Rp :',harga[i])
+            garis()
+            i = int(input("\nInputkan ID menu  : "))
+            if (i) >= len(donat):
+                clear_screen()
+                print("Inputan salah !!")
+                back_to_menu_jual()
+            else:
+                enter()
+                jumlah = int(input('Jumlah pembelian  : '))
+                price = harga[i]
+                total = jumlah*price
+                nama_pesanan = donat[i]
+                clear_screen()
+
+                loop = 'Y'
+                while loop == 'y' or loop == 'Y':
+                    menu_hari()
+                    diskon = int(input('\nMasukkan pilihan : '))
+                    enter()
+
+                    if diskon == 1:
+                        clear_screen()
+                        a = (total)
+                        b = int(a*0.1)
+                        total_pembelian = a-b
+                        print("-------------------------------")
+                        print("=======(Donat Bang Jamet)======")
+                        print('Diskon Hari Senin Potongan 10%')
+                        print("-------------------------------")
+                    elif diskon == 5:
+                        clear_screen()
+                        a = int(total)
+                        b = int(a*0.25)
+                        total_pembelian = a-b
+                        print("--------------------------------")
+                        print("=======(Donat Bang Jamet)=======")
+                        print('Diskon Jumat Berkah Potongan 25%')
+                        print("--------------------------------")
+                    elif diskon == 2 or diskon == 3 or diskon == 4 or diskon == 6 or diskon == 7:
+                        clear_screen()
+                        a = int(total)
+                        b = '-'
+                        total_pembelian = a
+                        print("--------------------------------")
+                        print("=======(Donat Bang Jamet)=======")
+                        print("--------------------------------")
+                    else:
+                        clear_screen()
+                        loop = input("Inputan salah, kembali ke menu? [Y/N] : ")
+                        continue
+
+                    print("Pesanan          :", nama_pesanan)
+                    print("Jumlah Pesanan   :", jumlah)
+                    print("Harga            : Rp.",total)
+                    print("Diskon           : Rp.",b)
+                    print("--------------------------------")
+                    print("Jumlah Bayar     : Rp.",total_pembelian)
+                    print("--------------------------------")
+                    enter()
+                    input("Tekan [Enter] untuk kembali...")
+                    clear_screen()
+                    show_login()
+                    
+                        
+                    
+def insert_data():
+    clear_screen()
+    enter()
+    donat_baru = input("Nama menu        : ")
+    harga_baru = int(input('Masukkan harga   : ')) 
+    enter()
+    donat.append(donat_baru)
+    harga.append(harga_baru)
+    show_admin()
+    back_to_menu()
+
+def edit_data():
+    show_admin()
+    i = int(input("\nInputkan ID menu : "))
+    if (i) >= len(donat):
+        clear_screen()
+        print("Inputan salah !!")
+        back_to_menu()
+    elif (i) >= len(harga):
+        clear_screen()
+        print("Inputan salah !!")
+        back_to_menu()
+    else:
+        enter()
+        judul_baru = input("Nama Baru  : ")
+        harga_baru = input("Harga Baru : ")
+        donat[i] = judul_baru
+        harga[i] = harga_baru
+        show_admin()
+        back_to_menu()
+
+def delete_data():
+    show_admin()
+    i = int(input("\nInputkan ID menu : "))
+    enter()
+    if(i) >= len(donat):
+        clear_screen()
+        print("Inputan salah !!")
+        back_to_menu()
+    elif(i) >= len(harga):
+        clear_screen()
+        print("Inputan salah !!")
+        back_to_menu()
+    else:
+        donat.remove(donat[i])
+        harga.remove(harga[i])
+    show_admin()
+    back_to_menu()
+
+def show_menu():
+    loop = 'Y'
+    while loop == 'y' or loop == 'Y':
+        print('======(Menu Admin)======')
+        print('[1] Menu')
+        print('[2] Masukkan Menu Baru')
+        print('[3] Edit Menu')
+        print('[4] Hapus Menu')
+        print('[5] Kembali')
+        garis()
+        enter()
+
+        answer = int(input('Masukkan Pilihan : '))
+        
+        if answer == 1:
+            show_data()
+        elif answer == 2:
+                insert_data()
+        elif answer == 3:
+                edit_data()
+        elif answer == 4:
+                delete_data()
+        elif answer == 5:
+                show_login()
+        else:
+            loop = input("Inputan salah, kembali? [Y/N] : ")
+            clear_screen()
+            if loop == 'n' or loop == 'N':
+                enter()
+                print('Terima kasih')
+                enter()
+
+def enter():
+    print('')
+
+import os
+
+def clear_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def show_login():
+    clear_screen()
+    loop = 'Y'
+    while loop == 'y' or loop == 'Y':
+        print('========(Login)=========')
+        print('[1] Admin')
+        print('[2] User')
+        garis()
+        enter()
+        answer = int(input('Masukkan pilihan  : '))
+        enter()
+        if answer == 1:
+                username = str(input('Masukkan username : '))
+                if username == 'Muchlis' or username == 'muchlis':
+                    password = str(input('Masukkan password : '))
+                    if password == '069':
+                        clear_screen()
+                        show_menu()        
+                    else:
+                        clear_screen()
+                        back_to_login_password()    
+                else:
+                    clear_screen()
+                    back_to_login_username()    
+
+        elif answer == 2:
+                username = str(input('Masukkan username : '))
+                if username == 'Muchlis' or username == 'muchlis':
+                    password = str(input('Masukkan password : '))
+                    if password == '210':
+                        clear_screen()
+                        show_menu_jual()        
+                    else:
+                        clear_screen()
+                        back_to_login_password()    
+                else:
+                    clear_screen()
+                    back_to_login_username()
+
+def menu_hari():
+    clear_screen()
+    print('========(Hari Pembelian)========')
+    print(hari[1])
+    print(hari[2])
+    print(hari[3])
+    print(hari[4])
+    print(hari[5])
+    print(hari[6])
+    print(hari[7])
+    print('================================')
+
+def garis():
+    print('========================')
+
+def garis_menu():
+    print('=========(Menu)==========')
+
+show_login()
